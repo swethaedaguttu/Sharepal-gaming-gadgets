@@ -1,0 +1,50 @@
+.shell { max-width: calc(var(--container) + 24px); margin: 0 auto; padding: 8px 12px 0; }
+
+.faq { margin-top: 24px; padding: 32px 40px 36px; background: #fff; border-radius: 28px; }
+.faq h2 { font-size: 24px; font-weight: 700; margin-bottom: 18px; }
+.faq__item h3 { font-size: 16px; font-weight: 700; }
+.faq__q { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 16px 16px; text-align: left; font-weight: 700; font-size: 16px; border-radius: 12px; transition: background-color 0.2s; }
+.faq__q:hover { background: #f1f1f1; }
+.faq__q:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.faq__chev { flex: none; color: #4b5563; transition: transform 0.25s var(--ease); }
+.faq__item.is-open .faq__chev { transform: rotate(180deg); }
+.faq__a { padding: 0 16px 16px; color: #4b5563; font-size: 15px; animation: slide-down 0.25s var(--ease); }
+.faq__a a { color: var(--blue); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.faq__more { display: block; margin-top: 8px; padding: 13px 16px; border-radius: 999px; background: #f1f1f1; text-align: center; font-size: 15px; font-weight: 700; transition: background-color 0.2s; }
+.faq__more:hover { background: #e5e7eb; }
+
+.crumbs { display: flex; align-items: center; gap: 10px; padding: 36px 8px 12px; font-size: 14px; color: var(--muted); }
+.crumbs a:hover { text-decoration: underline; }
+.crumbs [aria-current] { color: var(--text); font-weight: 600; }
+
+.social { background: #fff; padding: 56px 12px 40px; }
+.social h2 { text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 42px; line-height: 1.2; color: var(--navy); }
+.social h2 span { color: var(--orange); }
+.marquee { max-width: 1280px; margin: 40px auto 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.marquee__track { display: flex; gap: 16px; width: max-content; animation: marquee 48s linear infinite; padding: 4px 0; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(calc(-50% - 8px)); } }
+.review { flex: none; width: 370px; display: flex; flex-direction: column; gap: 14px; padding: 18px 20px; border-radius: 20px; background: #fafafa; border: 1px solid #ececf0; }
+.review__top { display: flex; align-items: center; gap: 8px; }
+.gmark { font-family: var(--font); font-weight: 800; font-size: 22px; line-height: 1; background: conic-gradient(from -45deg, #ea4335 0 25%, #fbbc05 0 50%, #34a853 0 75%, #4285f4 0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.review__stars { display: flex; gap: 2px; color: #f4b400; }
+.review__text { font-size: 16px; font-weight: 700; line-height: 1.45; color: var(--navy); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 70px; }
+.review__who { display: flex; align-items: center; gap: 12px; }
+.review__who strong { display: block; font-size: 14px; font-weight: 600; line-height: 1.2; color: #374151; }
+.review__who small { font-size: 13px; color: var(--muted); }
+.review__avatar { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #dbe3ff; color: #1f3fe6; font-size: 13px; font-weight: 700; }
+
+.stats { max-width: 1060px; margin: 40px auto 0; padding: 36px 0 0; border-top: 1px solid #ececf0; display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 16px; }
+.stats__value { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 1.1; background: linear-gradient(90deg, #1230d8 40%, #7ac70c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stats__label { margin-top: 6px; font-size: 18px; color: #4b5563; }
+
+@media (max-width: 720px) {
+  .faq { padding: 24px 12px 20px; border-radius: 20px; }
+  .faq h2 { font-size: 20px; padding: 0 8px; }
+  .faq__q { font-size: 15px; padding: 14px 8px; }
+  .social { padding-top: 40px; }
+  .social h2 { font-size: 28px; }
+  .review { width: 300px; }
+  .stats { grid-template-columns: 1fr; padding-top: 24px; }
+  .stats__value { font-size: 44px; }
+}

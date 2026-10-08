@@ -1,0 +1,105 @@
+.header { position: relative; z-index: 100; background: var(--purple-800); }
+.header__inner {
+  max-width: 1208px; height: 84px; margin: 0 auto; padding: 0 12px;
+  display: flex; align-items: flex-start; gap: 24px;
+}
+.header__logo {
+  flex: none; display: grid; place-items: center; width: 160px; height: 68px;
+  background: var(--blue); border-radius: 0 0 16px 16px;
+  transition: filter 0.2s;
+}
+.header__logo:hover { filter: brightness(1.08); }
+
+.datebar {
+  position: relative; flex: none; margin: 30px auto 0 auto; display: flex; align-items: stretch;
+  height: 38px; border-radius: 999px; background: #fff;
+  box-shadow: 0 0 0 2px rgba(214, 196, 255, 0.85);
+}
+.datebar > button:first-child { border-radius: 999px 0 0 999px; }
+.datebar__city, .datebar__field, .datebar__select {
+  display: flex; align-items: center; gap: 8px; padding: 0 16px; white-space: nowrap;
+  font-size: 14px; font-weight: 500; transition: background-color 0.2s;
+}
+.datebar__city { background: var(--purple-100); color: var(--purple-900); font-weight: 700; gap: 6px; padding: 0 14px 0 12px; }
+.datebar__city:hover { background: #e0d9f3; }
+.datebar__field { color: #374151; }
+.datebar__field:hover { background: #f4f2fa; }
+.datebar__field .is-set { color: var(--navy); font-weight: 700; }
+.datebar__field svg { color: #4b5563; }
+.datebar__select { background: var(--navy); color: #fff; font-weight: 700; padding: 0 16px; border-radius: 0 999px 999px 0; }
+.datebar__select:hover { background: #1a2260; }
+
+.header__actions { flex: none; display: flex; align-items: center; gap: 14px; margin-top: 26px; }
+.header__actions .icon-btn { width: 42px; height: 42px; }
+.login { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px; color: #fff; }
+.login__avatar { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #fff; color: var(--navy); transition: transform 0.2s var(--ease); }
+.login:hover .login__avatar { transform: scale(1.06); }
+
+.searchbar { background: #fff; border-bottom: 1px solid var(--border); animation: slide-down 0.25s var(--ease); }
+.searchbar__inner { max-width: 1208px; margin: 0 auto; padding: 12px; display: flex; align-items: center; gap: 12px; color: var(--muted); }
+.searchbar input { flex: 1; height: 44px; border: 0; outline: 0; font-size: 16px; background: transparent; color: var(--text); min-width: 0; }
+.searchbar__done { font-weight: 700; color: var(--blue); padding: 8px 12px; border-radius: 8px; }
+@keyframes slide-down { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+/* Date picker */
+.picker-backdrop { display: none; }
+.picker {
+  position: absolute; z-index: 90; top: calc(100% + 14px); left: 50%; transform: translateX(-50%);
+  width: 720px; max-width: calc(100vw - 24px); padding: 24px 28px 20px;
+  background: #fff; color: var(--text); border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(10, 15, 51, 0.28);
+  animation: pop-in 0.22s var(--ease);
+}
+@keyframes pop-in { from { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.98); } to { opacity: 1; transform: translateX(-50%); } }
+.picker__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
+.picker__title { font-size: 20px; font-weight: 700; }
+.picker__hint { font-size: 14px; color: var(--muted); margin-top: 2px; }
+.picker__close { width: 36px; height: 36px; border-radius: 50%; font-size: 26px; line-height: 1; color: var(--muted); }
+.picker__close:hover { background: var(--bg); }
+.picker__foot { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+.picker__clear { font-weight: 600; font-size: 14px; color: var(--muted); text-decoration: underline; padding: 8px; }
+
+.cal { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 8px; }
+.cal__nav { position: absolute; top: 4px; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; z-index: 1; }
+.cal__nav:hover:not(:disabled) { background: var(--bg); }
+.cal__nav:disabled { opacity: 0.25; }
+.cal__nav--prev { left: -6px; }
+.cal__nav--next { right: -6px; }
+.cal__title { text-align: center; font-weight: 700; font-size: 16px; margin-bottom: 12px; }
+.cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 2px; }
+.cal__wd { text-align: center; font-size: 12px; font-weight: 600; color: var(--muted); padding-bottom: 6px; }
+.cal__day {
+  position: relative; height: 40px; font-size: 14px; font-weight: 600; border-radius: 50%;
+  transition: background-color 0.15s, color 0.15s;
+}
+.cal__day:hover:not(:disabled):not(.is-start):not(.is-end) { background: var(--purple-100); }
+.cal__day:disabled { color: #c5c8d0; font-weight: 500; }
+.cal__day.is-today:not(.is-start):not(.is-end)::after { content: ''; position: absolute; left: 50%; top: 0; width: 40px; height: 40px; margin-left: -20px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--purple-600); pointer-events: none; }
+.cal__day.is-range { background: var(--purple-100); border-radius: 0; }
+.cal__day.is-start, .cal__day.is-end { background: var(--navy); color: #fff; }
+.cal__day.has-range { background: var(--navy); }
+
+@media (max-width: 900px) {
+  .header__inner { height: auto; flex-wrap: wrap; align-items: center; gap: 12px 12px; padding: 0 12px 14px; }
+  .header__logo { width: 120px; height: 54px; }
+  .logo--badge { font-size: 27px; }
+  .header__actions { margin: 0 0 0 auto; gap: 6px; }
+  .login__text { display: none; }
+  .datebar { order: 3; flex: 1 1 100%; margin: 0; max-width: 560px; align-self: center; }
+  .datebar__field { flex: 1; min-width: 0; padding: 0 10px; font-size: 13px; justify-content: center; }
+  .datebar__field svg { display: none; }
+  .datebar__city { padding: 0 10px; font-size: 13px; }
+  .datebar__select { padding: 0 14px; font-size: 13px; }
+  .datebar { height: 40px; }
+  .picker-backdrop { display: block; position: fixed; inset: 0; z-index: 80; background: rgba(10, 15, 51, 0.5); }
+  .picker {
+    position: fixed; z-index: 90; top: auto; bottom: 0; left: 0; right: 0; transform: none; width: auto; max-width: none;
+    border-radius: 24px 24px 0 0; padding: 20px 16px 16px; max-height: 92vh; overflow: auto; animation: sheet-up 0.28s var(--ease);
+  }
+  @keyframes sheet-up { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .cal { grid-template-columns: 1fr; }
+  .cal__month--second { display: none; }
+  .cal__nav { top: 2px; }
+  .cal__nav--prev { left: 0; }
+  .cal__nav--next { right: 0; }
+}
