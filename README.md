@@ -2,6 +2,8 @@
 
 A responsive React-based recreation of SharePal's Gaming Gadgets rental page, designed with a clean, modern interface and optimized for desktop, tablet, and mobile screens.
 
+## LIVE DEMO  https://sharepal-gaming-gadgets-neon.vercel.app/bangalore/gaming-gadgets-on-rent
+
 ## ✨ Overview
 
 SharePal Gaming Gadgets provides a product-focused rental browsing experience for gaming devices and accessories.
